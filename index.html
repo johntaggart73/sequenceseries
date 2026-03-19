@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Sequence Series — John W. Taggart</title>
+  <meta name="description" content="The Sequence Series by John W. Taggart. Four books. One physicist. Eleven ancient sites. One activation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black:    #06070a;
+      --deep:     #090b0f;
+      --surface:  #0d1016;
+      --card:     #10141c;
+      --border:   #1a2030;
+      --amber:    #c4a45a;
+      --amber-dim:#7a6030;
+      --amber-pale:#e8d090;
+      --text:     #b0b8c8;
+      --text-dim: #505870;
+      --text-faint:#202838;
+      --white:    #d8e0f0;
+    }
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--black); color: var(--text); font-family: 'Cormorant Garamond', Georgia, serif; font-size: 18px; line-height: 1.8; overflow-x: hidden; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; background: linear-gradient(to bottom, rgba(6,7,10,0.98), rgba(6,7,10,0)); }
+    .nav-logo { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 4px; color: var(--amber); text-decoration: none; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-family: 'Raleway', sans-serif; font-size: 9px; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; color: var(--text-dim); text-decoration: none; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--amber); }
+
+    /* HERO */
+    .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 40px 80px; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(196,164,90,0.05) 0%, transparent 65%), radial-gradient(ellipse 40% 50% at 20% 80%, rgba(196,164,90,0.02) 0%, transparent 60%), radial-gradient(ellipse 40% 50% at 80% 20%, rgba(196,164,90,0.02) 0%, transparent 60%); }
+
+    /* Constellation grid — nodes connected */
+    .hero-grid { position: absolute; inset: 0; }
+    .node { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: var(--amber); opacity: 0; animation: node-pulse 4s ease-in-out infinite; }
+    .node:nth-child(1)  { top: 20%; left: 15%; animation-delay: 0s; }
+    .node:nth-child(2)  { top: 35%; left: 30%; animation-delay: 0.7s; }
+    .node:nth-child(3)  { top: 15%; left: 48%; animation-delay: 1.4s; }
+    .node:nth-child(4)  { top: 40%; left: 65%; animation-delay: 0.3s; }
+    .node:nth-child(5)  { top: 25%; left: 80%; animation-delay: 1.8s; }
+    .node:nth-child(6)  { top: 60%; left: 20%; animation-delay: 0.9s; }
+    .node:nth-child(7)  { top: 70%; left: 42%; animation-delay: 2.1s; }
+    .node:nth-child(8)  { top: 55%; left: 70%; animation-delay: 0.5s; }
+    .node:nth-child(9)  { top: 75%; left: 85%; animation-delay: 1.2s; }
+    .node:nth-child(10) { top: 80%; left: 55%; animation-delay: 1.6s; }
+    .node:nth-child(11) { top: 45%; left: 10%; animation-delay: 2.4s; }
+    @keyframes node-pulse { 0%, 100% { opacity: 0.08; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.8); } }
+
+    .hero-eyebrow { font-family: 'Raleway', sans-serif; font-size: 9px; font-weight: 300; letter-spacing: 6px; text-transform: uppercase; color: var(--amber); opacity: 0.7; margin-bottom: 24px; animation: fade-up 1s ease both; }
+    .hero-title { font-family: 'Cinzel', serif; font-size: clamp(44px, 7vw, 90px); font-weight: 600; color: var(--white); letter-spacing: 6px; line-height: 1.05; margin-bottom: 8px; animation: fade-up 1s ease 0.15s both; }
+    .hero-title span { color: var(--amber); }
+    .hero-subtitle { font-family: 'Cinzel', serif; font-size: clamp(13px, 2vw, 20px); font-weight: 400; color: var(--amber-dim); letter-spacing: 8px; text-transform: uppercase; margin-bottom: 40px; animation: fade-up 1s ease 0.3s both; }
+    .hero-rule { width: 60px; height: 1px; background: var(--amber); margin: 0 auto 40px; opacity: 0.3; animation: expand 1.2s ease 0.5s both; }
+    @keyframes expand { from { width: 0; opacity: 0; } to { width: 60px; opacity: 0.3; } }
+    .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 2.2vw, 21px); font-weight: 300; font-style: italic; color: var(--text); max-width: 600px; margin: 0 auto 20px; line-height: 1.7; animation: fade-up 1s ease 0.45s both; }
+    .hero-meta { font-family: 'Raleway', sans-serif; font-size: 9px; font-weight: 300; letter-spacing: 5px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 56px; animation: fade-up 1s ease 0.6s both; }
+    .hero-cta { display: inline-block; font-family: 'Raleway', sans-serif; font-size: 9px; font-weight: 400; letter-spacing: 4px; text-transform: uppercase; color: var(--amber); border: 1px solid rgba(196,164,90,0.35); padding: 16px 36px; text-decoration: none; transition: all 0.3s; animation: fade-up 1s ease 0.75s both; }
+    .hero-cta:hover { background: rgba(196,164,90,0.06); border-color: var(--amber); }
+    @keyframes fade-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-scroll { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; animation: fade-up 1s ease 1s both; }
+    .hero-scroll span { font-family: 'Raleway', sans-serif; font-size: 8px; letter-spacing: 4px; text-transform: uppercase; color: var(--text-faint); }
+    .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--amber-dim), transparent); animation: scroll-pulse 2s ease-in-out infinite; }
+    @keyframes scroll-pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.7; } }
+
+    /* SHARED */
+    section { position: relative; }
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+    .section-header { text-align: center; margin-bottom: 80px; }
+    .section-eyebrow { font-family: 'Raleway', sans-serif; font-size: 8px; font-weight: 300; letter-spacing: 6px; text-transform: uppercase; color: var(--amber); opacity: 0.6; margin-bottom: 16px; }
+    .section-title { font-family: 'Cinzel', serif; font-size: clamp(22px, 3.5vw, 36px); font-weight: 400; color: var(--white); letter-spacing: 4px; }
+    .section-rule { width: 40px; height: 1px; background: var(--amber); margin: 20px auto 0; opacity: 0.25; }
+
+    /* PREMISE */
+    .premise { padding: 100px 0; background: var(--deep); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .premise-grid { display: grid; grid-template-columns: 1fr 2px 1fr; gap: 0 60px; align-items: center; max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+    .premise-divider { background: linear-gradient(to bottom, transparent, var(--amber-dim), transparent); height: 200px; opacity: 0.2; }
+    .premise-label { font-family: 'Raleway', sans-serif; font-size: 8px; font-weight: 300; letter-spacing: 5px; text-transform: uppercase; color: var(--amber); opacity: 0.6; margin-bottom: 20px; }
+    .premise-text { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 300; line-height: 1.9; color: var(--text); }
+    .premise-text em { font-style: italic; color: var(--white); }
+    .premise-stat { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 4px; color: var(--amber-dim); opacity: 0.7; }
+
+    /* ELEVEN NODES */
+    .nodes-strip { padding: 60px 0; background: var(--black); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; }
+    .nodes-inner { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+    .nodes-label { font-family: 'Raleway', sans-serif; font-size: 8px; font-weight: 300; letter-spacing: 6px; text-transform: uppercase; color: var(--amber); opacity: 0.5; margin-bottom: 32px; text-align: center; }
+    .nodes-row { display: flex; justify-content: space-between; align-items: center; gap: 0; }
+    .node-item { display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1; }
+    .node-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); opacity: 0.2; transition: opacity 0.3s; }
+    .node-item:hover .node-dot { opacity: 0.8; }
+    .node-connector { flex: 1; height: 1px; background: linear-gradient(to right, rgba(196,164,90,0.1), rgba(196,164,90,0.05)); }
+    .node-name { font-family: 'Raleway', sans-serif; font-size: 7px; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; color: var(--text-faint); text-align: center; white-space: nowrap; }
+    .node-item.active .node-dot { opacity: 0.9; box-shadow: 0 0 12px rgba(196,164,90,0.5); }
+    .node-item.active .node-name { color: var(--amber-dim); opacity: 0.7; }
+
+    /* BOOKS */
+    .books { padding: 120px 0; }
+    .book-featured { padding: 64px; background: var(--card); border: 1px solid var(--border); position: relative; overflow: hidden; margin-bottom: 40px; }
+    .book-featured::before { content: ''; position: absolute; top: 0; left: 0; width: 2px; height: 100%; background: linear-gradient(to bottom, var(--amber), transparent); }
+    .book-featured-badge { display: inline-block; font-family: 'Raleway', sans-serif; font-size: 8px; font-weight: 400; letter-spacing: 4px; text-transform: uppercase; color: var(--black); background: var(--amber); padding: 6px 14px; margin-bottom: 24px; }
+    .book-num { font-family: 'Raleway', sans-serif; font-size: 8px; font-weight: 300; letter-spacing: 5px; text-transform: uppercase; color: var(--amber); opacity: 0.7; margin-bottom: 14px; }
+    .book-title-large { font-family: 'Cinzel', serif; font-size: clamp(24px, 3.5vw, 40px); font-weight: 400; color: var(--white); letter-spacing: 3px; line-height: 1.1; margin-bottom: 8px; }
+    .book-tagline { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-style: italic; font-weight: 300; color: var(--amber-dim); letter-spacing: 1px; margin-bottom: 28px; opacity: 0.8; }
+    .book-rule { width: 30px; height: 1px; background: var(--amber); opacity: 0.25; margin-bottom: 28px; }
+    .book-synopsis { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300; line-height: 1.9; color: var(--text); max-width: 680px; margin-bottom: 36px; }
+    .book-meta-row { display: flex; gap: 40px; flex-wrap: wrap; }
+    .book-meta-item { display: flex; flex-direction: column; gap: 4px; }
+    .book-meta-label { font-family: 'Raleway', sans-serif; font-size: 7px; letter-spacing: 4px; text-transform: uppercase; color: var(--text-dim); opacity: 0.6; }
+    .book-meta-value { font-family: 'Cormorant Garamond', serif; font-size: 15px; color: var(--text); }
+
+    .books-coming { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .book-card { background: var(--card); border: 1px solid var(--border); padding: 40px 36px; position: relative; transition: border-color 0.3s; }
+    .book-card:hover { border-color: rgba(196,164,90,0.2); }
+    .book-card-num { font-family: 'Cinzel', serif; font-size: 52px; font-weight: 600; color: rgba(196,164,90,0.05); line-height: 1; margin-bottom: 16px; }
+    .book-card-label { font-family: 'Raleway', sans-serif; font-size: 7px; font-weight: 300; letter-spacing: 5px; text-transform: uppercase; color: var(--amber); opacity: 0.4; margin-bottom: 10px; }
+    .book-card-title { font-family: 'Cinzel', serif; font-size: 17px; font-weight: 400; color: var(--white); letter-spacing: 1px; line-height: 1.3; margin-bottom: 16px; opacity: 0.6; }
+    .book-card-desc { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 300; font-style: italic; color: var(--text-dim); line-height: 1.7; margin-bottom: 24px; }
+    .book-card-date { font-family: 'Raleway', sans-serif; font-size: 8px; font-weight: 300; letter-spacing: 3px; text-transform: uppercase; color: var(--amber-dim); opacity: 0.5; }
+
+    /* WREN */
+    .protagonist { padding: 120px 0; background: var(--deep); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .protagonist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+    .prot-label { font-family: 'Raleway', sans-serif; font-size: 8px; font-weight: 300; letter-spacing: 6px; text-transform: uppercase; color: var(--amber); opacity: 0.6; margin-bottom: 20px; }
+    .prot-name { font-family: 'Cinzel', serif; font-size: clamp(26px, 3.5vw, 42px); font-weight: 400; color: var(--white); letter-spacing: 3px; line-height: 1.1; margin-bottom: 6px; }
+    .prot-title { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-style: italic; color: var(--amber-dim); letter-spacing: 1px; margin-bottom: 28px; opacity: 0.8; }
+    .prot-rule { width: 30px; height: 1px; background: var(--amber); opacity: 0.25; margin-bottom: 28px; }
+    .prot-bio { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300; line-height: 1.9; color: var(--text); margin-bottom: 36px; }
+    .prot-traits { display: flex; flex-direction: column; gap: 14px; }
+    .prot-trait { display: flex; gap: 20px; align-items: flex-start; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .prot-trait:last-child { border-bottom: none; }
+    .trait-label { font-family: 'Raleway', sans-serif; font-size: 7px; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; color: var(--amber-dim); opacity: 0.6; min-width: 88px; padding-top: 3px; flex-shrink: 0; }
+    .trait-value { font-family: 'Cormorant Garamond', serif; font-size: 16px; color: var(--text); line-height: 1.6; }
+
+    /* UNIVERSE */
+    .universe { padding: 120px 0; text-align: center; }
+    .universe-inner { max-width: 760px; margin: 0 auto; padding: 0 48px; }
+    .universe-text { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 300; line-height: 1.9; color: var(--text); margin-bottom: 20px; }
+    .universe-text em { color: var(--white); font-style: italic; }
+    .universe-series-row { display: flex; justify-content: center; margin: 56px 0; }
+    .universe-series-item { padding: 28px 40px; border: 1px solid var(--border); text-align: center; flex: 1; max-width: 220px; }
+    .universe-series-item.active { border-color: rgba(196,164,90,0.3); background: rgba(196,164,90,0.03); }
+    .universe-series-item:not(:last-child) { border-right: none; }
+    .series-item-label { font-family: 'Raleway', sans-serif; font-size: 7px; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; color: var(--text-dim); opacity: 0.5; margin-bottom: 8px; }
+    .series-item-name { font-family: 'Cinzel', serif; font-size: 14px; color: var(--white); letter-spacing: 2px; opacity: 0.5; }
+    .universe-series-item.active .series-item-name { color: var(--amber); opacity: 1; }
+    .universe-series-item.active .series-item-label { color: var(--amber-dim); opacity: 0.7; }
+
+    /* NEWSLETTER */
+    .newsletter { padding: 100px 0; background: var(--surface); border-top: 1px solid var(--border); }
+    .newsletter-inner { max-width: 560px; margin: 0 auto; padding: 0 48px; text-align: center; }
+    .newsletter-title { font-family: 'Cinzel', serif; font-size: 26px; font-weight: 400; color: var(--white); letter-spacing: 3px; margin-bottom: 16px; }
+    .newsletter-sub { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-style: italic; color: var(--text-dim); margin-bottom: 40px; line-height: 1.7; }
+    .newsletter-form { display: flex; }
+    .newsletter-input { flex: 1; background: var(--card); border: 1px solid var(--border); border-right: none; color: var(--white); font-family: 'Cormorant Garamond', serif; font-size: 16px; padding: 16px 20px; outline: none; transition: border-color 0.3s; }
+    .newsletter-input::placeholder { color: var(--text-faint); }
+    .newsletter-input:focus { border-color: rgba(196,164,90,0.3); }
+    .newsletter-btn { background: var(--amber); border: none; color: var(--black); font-family: 'Raleway', sans-serif; font-size: 9px; font-weight: 400; letter-spacing: 4px; text-transform: uppercase; padding: 16px 24px; cursor: pointer; transition: background 0.3s; white-space: nowrap; }
+    .newsletter-btn:hover { background: var(--amber-pale); }
+    .newsletter-note { font-family: 'Raleway', sans-serif; font-size: 8px; font-weight: 300; letter-spacing: 3px; text-transform: uppercase; color: var(--text-faint); margin-top: 16px; }
+
+    /* FOOTER */
+    footer { padding: 48px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-left { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 3px; color: var(--text-faint); }
+    .footer-right { display: flex; gap: 32px; }
+    .footer-right a { font-family: 'Raleway', sans-serif; font-size: 8px; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; color: var(--text-faint); text-decoration: none; transition: color 0.3s; }
+    .footer-right a:hover { color: var(--amber); }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links { gap: 16px; }
+      .premise-grid { grid-template-columns: 1fr; }
+      .premise-divider { display: none; }
+      .book-featured { padding: 36px 24px; }
+      .books-coming { grid-template-columns: 1fr; }
+      .protagonist-grid { grid-template-columns: 1fr; gap: 48px; }
+      .nodes-row { flex-wrap: wrap; justify-content: center; gap: 16px; }
+      .node-connector { display: none; }
+      .universe-series-row { flex-direction: column; align-items: center; }
+      .universe-series-item { max-width: 100%; width: 100%; }
+      .universe-series-item:not(:last-child) { border-right: 1px solid var(--border); border-bottom: none; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-input { border-right: 1px solid var(--border); border-bottom: none; }
+      footer { flex-direction: column; text-align: center; padding: 32px 24px; }
+      .section-inner, .premise-grid, .newsletter-inner, .universe-inner, .protagonist-grid, .nodes-inner { padding: 0 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://www.johnwtaggart.com" class="nav-logo">John W. Taggart</a>
+    <ul class="nav-links">
+      <li><a href="#books">Books</a></li>
+      <li><a href="#wren">Wren Fontaine</a></li>
+      <li><a href="#universe">The Universe</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid">
+      <div class="node"></div><div class="node"></div><div class="node"></div><div class="node"></div>
+      <div class="node"></div><div class="node"></div><div class="node"></div><div class="node"></div>
+      <div class="node"></div><div class="node"></div><div class="node"></div>
+    </div>
+    <p class="hero-eyebrow">John W. Taggart</p>
+    <h1 class="hero-title">The <span>Sequence</span></h1>
+    <p class="hero-subtitle">Series</p>
+    <div class="hero-rule"></div>
+    <p class="hero-tagline">Eleven ancient stone sites. One planetary defense system. One physicist who figures out what the switch does — and presses it anyway.</p>
+    <p class="hero-meta">Archaeological Thriller &nbsp;&middot;&nbsp; Four Volumes</p>
+    <a href="#books" class="hero-cta">Explore the Series</a>
+    <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+  </section>
+
+  <!-- PREMISE -->
+  <section class="premise">
+    <div class="premise-grid">
+      <div>
+        <p class="premise-label">The Series</p>
+        <p class="premise-text">The Sequence Series follows <em>Wren Fontaine</em> &mdash; orbital physicist, accidental archaeologist, and the person who recognizes that eleven ancient stone sites are not monuments, not calendars, not temples. They are components. They are a system. And the system has a function that no one on Earth has activated in twelve thousand years &mdash; until now.</p>
+      </div>
+      <div class="premise-divider"></div>
+      <div>
+        <p class="premise-label">The Architecture</p>
+        <p class="premise-text">The Sequence Series runs parallel to <em>The Protocol Series</em> and <em>The Directive Series</em>. Three protagonists. Three angles on the same hidden truth. What Wren activates, Daniel has been tracking in the data. What Aimee was standing over in Antarctica was one of the eleven nodes. The reader who holds all three sees what none of them can.</p>
+        <br /><p class="premise-stat">Protocol &middot; Directive &middot; Sequence</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ELEVEN NODES -->
+  <section class="nodes-strip">
+    <div class="nodes-inner">
+      <p class="nodes-label">The Eleven Nodes</p>
+      <div class="nodes-row">
+        <div class="node-item active"><div class="node-dot"></div><span class="node-name">Gobekli Tepe</span></div>
+        <div class="node-connector"></div>
+        <div class="node-item"><div class="node-dot"></div><span class="node-name">Karahantepe</span></div>
+        <div class="node-connector"></div>
+        <div class="node-item"><div class="node-dot"></div><span class="node-name">Nabta Playa</span></div>
+        <div class="node-connector"></div>
+        <div class="node-item"><div class="node-dot"></div><span class="node-name">Carnac</span></div>
+        <div class="node-connector"></div>
+        <div class="node-item"><div class="node-dot"></div><span class="node-name">Stonehenge</span></div>
+        <div class="node-connector"></div>
+        <div class="node-item"><div class="node-dot"></div><span class="node-name">Poverty Point</span></div>
+        <div class="node-connector"></div>
+        <div class="node-item"><div class="node-dot"></div><span class="node-name">Sajama Lines</span></div>
+        <div class="node-connector"></div>
+        <div class="node-item"><div class="node-dot"></div><span class="node-name">Yonaguni</span></div>
+        <div class="node-connector"></div>
+        <div class="node-item"><div class="node-dot"></div><span class="node-name">Gunung Padang</span></div>
+        <div class="node-connector"></div>
+        <div class="node-item"><div class="node-dot"></div><span class="node-name">Antarctica</span></div>
+        <div class="node-connector"></div>
+        <div class="node-item"><div class="node-dot"></div><span class="node-name">Unknown</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKS -->
+  <section class="books" id="books">
+    <div class="section-inner">
+      <div class="section-header">
+        <p class="section-eyebrow">The Complete Series</p>
+        <h2 class="section-title">Four Volumes</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="book-featured">
+        <span class="book-featured-badge">Coming 2027</span>
+        <p class="book-num">Book I of IV &nbsp;&middot;&nbsp; The Sequence Series</p>
+        <h2 class="book-title-large">The Draco Sequence</h2>
+        <p class="book-tagline">The orbital geometry was wrong for a monument. Right for something else entirely.</p>
+        <div class="book-rule"></div>
+        <p class="book-synopsis">Wren Fontaine is in Vermont, mapping the precession of the Draco constellation against the orientation of eleven megalithic sites, when she realizes the sites are not aligned to the stars as they appear today. They are aligned to the stars as they appeared twelve thousand years ago &mdash; and to a specific date within that window. Every site. The same date. Working backward from the geometry tells her what the system was designed to do. Working forward tells her it's almost ready to do it again.</p>
+        <div class="book-meta-row">
+          <div class="book-meta-item"><span class="book-meta-label">Status</span><span class="book-meta-value">In Development</span></div>
+          <div class="book-meta-item"><span class="book-meta-label">Launch</span><span class="book-meta-value">2027</span></div>
+          <div class="book-meta-item"><span class="book-meta-label">Genre</span><span class="book-meta-value">Archaeological Thriller</span></div>
+        </div>
+      </div>
+
+      <div class="books-coming">
+        <div class="book-card">
+          <div class="book-card-num">II</div>
+          <p class="book-card-label">Book II of IV</p>
+          <h3 class="book-card-title">The Schumann Sequence</h3>
+          <p class="book-card-desc">The resonance frequency has been changing. Not randomly. Wren finds the pattern in forty years of atmospheric data and understands what it means for the eleventh node.</p>
+          <span class="book-card-date">Coming 2028</span>
+        </div>
+        <div class="book-card">
+          <div class="book-card-num">III</div>
+          <p class="book-card-label">Book III of IV</p>
+          <h3 class="book-card-title">The Laschamps Sequence</h3>
+          <p class="book-card-desc">The last time the system was active, the geomagnetic field reversed. The builders knew this. They designed for it. Wren figures out why forty-one thousand years before the deadline.</p>
+          <span class="book-card-date">Coming 2029</span>
+        </div>
+        <div class="book-card">
+          <div class="book-card-num">IV</div>
+          <p class="book-card-label">Book IV of IV</p>
+          <h3 class="book-card-title">The Node Sequence</h3>
+          <p class="book-card-desc">The final volume. The eleventh node is found. The system is complete. Wren presses the switch knowing exactly what it does and exactly what it costs. She does it anyway.</p>
+          <span class="book-card-date">Coming 2030</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WREN -->
+  <section class="protagonist" id="wren">
+    <div class="protagonist-grid">
+      <div>
+        <p class="prot-label">The Protagonist</p>
+        <h2 class="prot-name">Wren Fontaine</h2>
+        <p class="prot-title">Orbital Physicist &middot; University of Vermont</p>
+        <div class="prot-rule"></div>
+        <p class="prot-bio">Wren Fontaine is thirty-eight years old and has spent her career studying the relationship between orbital mechanics and geological events &mdash; a field narrow enough that her department chair describes her work as "physics for archaeologists who don't know they need a physicist." She works alone. She is methodical about data and impulsive about conclusions, which has cost her two grants and one marriage and produced three papers that nobody read until they suddenly mattered enormously. She is in Vermont in November 2023, working in a farmhouse she rents because the rent is low and the light is good, when she notices something wrong with the numbers at Gobekli Tepe.</p>
+      </div>
+      <div class="prot-traits">
+        <div class="prot-trait"><span class="trait-label">Expertise</span><span class="trait-value">Orbital mechanics, precession cycles, archaeoastronomy, geophysical resonance</span></div>
+        <div class="prot-trait"><span class="trait-label">Setting</span><span class="trait-value">Vermont &middot; 2023 &middot; Gobekli Tepe, Carnac, Yonaguni, Antarctic shelf</span></div>
+        <div class="prot-trait"><span class="trait-label">Method</span><span class="trait-value">The geometry doesn't lie. If the numbers say the site is a component, it's a component.</span></div>
+        <div class="prot-trait"><span class="trait-label">Weakness</span><span class="trait-value">She understands what things are before she understands what they do. The gap between those two is where the danger lives.</span></div>
+        <div class="prot-trait"><span class="trait-label">Arc</span><span class="trait-value">Four books. She finds the system, maps it, completes it, and activates it. She always knew she would.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNIVERSE -->
+  <section class="universe" id="universe">
+    <div class="universe-inner">
+      <p class="section-eyebrow">The Connected Universe</p>
+      <h2 class="section-title" style="margin-bottom:24px;">Three Series. Twelve Books.</h2>
+      <div class="section-rule" style="margin-bottom:40px;"></div>
+      <p class="universe-text">The Sequence Series launches in 2027 alongside <em>The Directive Series</em>. By then, Protocol readers already know what the nodes are. Watching Wren discover them for the first time &mdash; and activate the system without fully understanding what she's doing &mdash; is the experience the universe was built to create.</p>
+      <p class="universe-text">Read the Sequence Series alone and the story resolves completely. Read it with Protocol and Directive and the universe opens.</p>
+      <div class="universe-series-row">
+        <div class="universe-series-item"><p class="series-item-label">Start Here</p><p class="series-item-name">Protocol</p></div>
+        <div class="universe-series-item"><p class="series-item-label">Coming 2027</p><p class="series-item-name">Directive</p></div>
+        <div class="universe-series-item active"><p class="series-item-label">You are here</p><p class="series-item-name">Sequence</p></div>
+      </div>
+      <a href="https://www.johnwtaggart.com" class="hero-cta">Full Series Roadmap &rarr;</a>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="newsletter-inner">
+      <p class="section-eyebrow" style="margin-bottom:16px;">Track the Activation</p>
+      <h2 class="newsletter-title">Get Series Updates</h2>
+      <p class="newsletter-sub">Cover reveals, launch dates, and research dispatches from the series. No noise. Just signal.</p>
+      <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+        <input type="email" class="newsletter-input" placeholder="Your email address" id="nl-email" required />
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+      </form>
+      <p class="newsletter-note" id="nl-msg">No spam. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-left">The Sequence Series &nbsp;&middot;&nbsp; John W. Taggart</div>
+    <div class="footer-right">
+      <a href="https://www.johnwtaggart.com">Author Site</a>
+      <a href="https://www.theprotocolbooks.com">The Protocol Series</a>
+      <a href="https://www.thedirectivebooks.com">The Directive Series</a>
+    </div>
+  </footer>
+
+  <script>
+    async function handleSubscribe(e) {
+      e.preventDefault();
+      const email = document.getElementById('nl-email').value;
+      const msg = document.getElementById('nl-msg');
+      try {
+        const res = await fetch('https://connect.mailerlite.com/api/subscribers', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer YOUR_MAILERLITE_API_TOKEN' },
+          body: JSON.stringify({ email, groups: ['181820865412859816'] })
+        });
+        if (res.ok) { msg.textContent = "You're in. Welcome to the universe."; msg.style.color = '#c4a45a'; document.getElementById('nl-email').value = ''; }
+        else { msg.textContent = 'Something went wrong. Try again.'; }
+      } catch { msg.textContent = 'Something went wrong. Try again.'; }
+    }
+  </script>
+</body>
+</html>
